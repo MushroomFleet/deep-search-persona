@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* NSL Branding - Dark Theme */
+    --background: 250 24% 10%;
+    --foreground: 250 10% 98%;
+    
+    --card: 250 20% 14%;
+    --card-foreground: 250 10% 98%;
+    
+    --popover: 250 24% 12%;
+    --popover-foreground: 250 10% 98%;
+    
+    --primary: 263 70% 60%;
+    --primary-foreground: 250 10% 98%;
+    --primary-glow: 263 80% 70%;
+    
+    --secondary: 250 15% 20%;
+    --secondary-foreground: 250 10% 98%;
+    
+    --muted: 250 15% 18%;
+    --muted-foreground: 250 10% 65%;
+    
+    --accent: 38 92% 50%;
+    --accent-foreground: 250 24% 10%;
+    --accent-glow: 38 100% 60%;
+    
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 250 10% 98%;
+    
+    --success: 142 71% 45%;
+    --success-foreground: 250 10% 98%;
+    
+    --border: 250 15% 22%;
+    --input: 250 15% 22%;
+    --ring: 263 70% 60%;
+    
+    --radius: 0.75rem;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(263 70% 60%) 0%, hsl(263 80% 70%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(38 92% 50%) 0%, hsl(38 100% 60%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(250 20% 14%) 0%, hsl(250 24% 10%) 100%);
+    
+    /* Shadows */
+    --shadow-elegant: 0 10px 40px -10px hsl(263 70% 30% / 0.4);
+    --shadow-glow: 0 0 40px hsl(263 80% 70% / 0.3);
+    --shadow-accent: 0 4px 20px hsl(38 92% 50% / 0.3);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+  
+  .gradient-subtle {
+    background: var(--gradient-subtle);
+  }
+  
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .shadow-accent {
+    box-shadow: var(--shadow-accent);
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.5s ease-out;
+  }
+}
+
+/* Custom Scrollbar (Dark Theme) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(250 24% 10%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(250 15% 22%);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(263 70% 60%);
+}
