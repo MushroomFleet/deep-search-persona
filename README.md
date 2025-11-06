@@ -37,6 +37,23 @@ An advanced autonomous research pipeline with specialized writing personas, powe
 
 ---
 
+## 🌐 Web Interface
+
+A modern **React + TypeScript** web interface is now available for the Deep Search pipeline!
+
+**Features:**
+- 🎨 Real-time progress tracking with live state updates
+- 🎭 Persona selection and upload directly in the UI
+- 📊 Interactive results display with markdown rendering
+- 🔄 Server-Sent Events (SSE) streaming for live feedback
+
+**Getting Started:**
+See the **[Frontend Documentation](frontend/README.md)** for installation and usage instructions.
+
+> **Note:** The web interface is a wrapper that requires the main Deep Search pipeline to be installed and configured first.
+
+---
+
 ## 🚀 Quick Start
 
 ### 1. Install Dependencies
