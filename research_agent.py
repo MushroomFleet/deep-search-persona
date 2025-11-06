@@ -55,10 +55,11 @@ class ResearchAgent:
         self.current_phase = ResearchPhase.PLANNING
         self.prompt_lib = PromptLibrary()
     
+    @staticmethod
     def _robust_json_extract(
-        self, 
         response: str, 
-        fallback_plan: Optional[Any] = None
+        fallback_plan: Optional[Any] = None,
+        llm_client: Optional[OpenRouterClient] = None
     ) -> Any:
         """
         Multi-strategy JSON extraction with automatic repair
@@ -68,12 +69,13 @@ class ResearchAgent:
         2. Extract from markdown code blocks
         3. Extract with regex patterns
         4. Auto-repair common issues
-        5. LLM-based repair
+        5. LLM-based repair (if llm_client provided)
         6. Fallback to simple structure
         
         Args:
             response: The raw response string
             fallback_plan: Optional fallback structure if all parsing fails
+            llm_client: Optional LLM client for LLM-based repair
             
         Returns:
             Parsed JSON object
@@ -109,28 +111,30 @@ class ResearchAgent:
         
         # Strategy 4: Auto-repair common issues
         try:
-            repaired = self._repair_json(response)
+            repaired = ResearchAgent._repair_json(response)
             return json.loads(repaired)
         except json.JSONDecodeError:
             pass
         
         # Strategy 5: LLM-based repair (expensive but effective)
-        try:
-            repaired = self._llm_json_repair(response)
-            return json.loads(repaired)
-        except json.JSONDecodeError:
-            pass
+        if llm_client:
+            try:
+                repaired = ResearchAgent._llm_json_repair(response, llm_client)
+                return json.loads(repaired)
+            except json.JSONDecodeError:
+                pass
         
         # Strategy 6: Fallback
         if fallback_plan:
-            return self._create_fallback_structure(fallback_plan)
+            return ResearchAgent._create_fallback_structure(fallback_plan)
         
         # All strategies failed
         raise JSONExtractionError(
             f"Failed to extract JSON from response. First 200 chars: {response[:200]}"
         )
     
-    def _repair_json(self, text: str) -> str:
+    @staticmethod
+    def _repair_json(text: str) -> str:
         """Attempt to repair common JSON issues"""
         # Remove markdown formatting
         text = re.sub(r'```(?:json)?', '', text)
@@ -148,7 +152,8 @@ class ResearchAgent:
         
         return text
     
-    def _llm_json_repair(self, broken_json: str) -> str:
+    @staticmethod
+    def _llm_json_repair(broken_json: str, llm_client: OpenRouterClient) -> str:
         """Use LLM to repair JSON (last resort)"""
         repair_prompt = f"""Fix this broken JSON and return ONLY valid JSON:
 
@@ -156,7 +161,7 @@ class ResearchAgent:
 
 Return the corrected JSON without any explanation or markdown formatting."""
         
-        response = self.llm.generate_with_system_prompt(
+        response = llm_client.generate_with_system_prompt(
             "You are a JSON repair expert. Return only valid JSON.",
             repair_prompt,
             temperature=0.1  # Low temperature for deterministic output
@@ -164,7 +169,8 @@ Return the corrected JSON without any explanation or markdown formatting."""
         
         return response.strip()
     
-    def _create_fallback_structure(self, query: str) -> List[Dict[str, Any]]:
+    @staticmethod
+    def _create_fallback_structure(query: str) -> List[Dict[str, Any]]:
         """Create a simple fallback research plan"""
         return [{
             "step": 1,
@@ -219,7 +225,7 @@ Return ONLY valid JSON:
         )
         
         try:
-            validation = self._robust_json_extract(response)
+            validation = self._robust_json_extract(response, llm_client=self.llm)
             return validation.get('is_valid', False), validation.get('issues', [])
         except JSONExtractionError:
             # If validation fails, assume plan is okay
@@ -276,7 +282,7 @@ Return ONLY valid JSON:
         response = self.llm.generate_with_system_prompt(system_prompt, user_prompt)
         
         # Use robust extraction
-        return self._robust_json_extract(response, fallback_plan=query)
+        return self._robust_json_extract(response, fallback_plan=query, llm_client=self.llm)
     
     def decide_next_action(self, current_context: Dict[str, Any]) -> Dict[str, str]:
         """
@@ -307,7 +313,7 @@ Return ONLY valid JSON:
         
         # Use robust extraction with fallback
         try:
-            return self._robust_json_extract(response)
+            return self._robust_json_extract(response, llm_client=self.llm)
         except JSONExtractionError:
             # Default action
             return {
@@ -356,7 +362,7 @@ Return ONLY valid JSON:
         
         # Use robust extraction with fallback
         try:
-            return self._robust_json_extract(response)
+            return self._robust_json_extract(response, llm_client=self.llm)
         except JSONExtractionError:
             # Return basic analysis as fallback
             return {

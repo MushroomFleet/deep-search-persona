@@ -192,9 +192,17 @@ class ResearchStateMachine:
     
     def _next_from_refining(self, ctx: Dict[str, Any]) -> WorkflowState:
         """Determine next state from REFINING"""
-        # If stuck in refining loop with no results, force synthesis with what we have
-        if ctx.get("iterations_without_progress", 0) > 2 and ctx.get("results_found", 0) == 0:
-            return self._transition_to(WorkflowState.SYNTHESIZING, "forcing_synthesis_despite_no_results")
+        # If stuck in refining loop (with or without results), force synthesis
+        # This prevents infinite refining→searching loops
+        if ctx.get("iterations_without_progress", 0) > 2:
+            # We're stuck - synthesize whatever we have
+            return self._transition_to(WorkflowState.SYNTHESIZING, "forcing_synthesis_stuck_in_loop")
+        
+        # If we have good coverage, move to synthesis
+        if ctx.get("coverage", 0) > 0.7 and ctx.get("results_found", 0) > 0:
+            return self._transition_to(WorkflowState.SYNTHESIZING, "sufficient_results_for_synthesis")
+        
+        # Otherwise, try searching again with refined strategy
         return self._transition_to(WorkflowState.SEARCHING, "strategy_refined")
     
     def _next_from_synthesizing(self, ctx: Dict[str, Any]) -> WorkflowState:

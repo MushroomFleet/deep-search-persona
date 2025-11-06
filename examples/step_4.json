@@ -1,0 +1,26 @@
+{
+  "step_number": 4,
+  "phase": "searching",
+  "query": "physical and thermal properties of boiling mocha latte or milk-chocolate-coffee emulsions, including viscosity, density, boiling point; Brownian motion in hot fluids and equations with analysis",
+  "reasoning": "Searching for: physical and thermal properties of boiling mocha latte or milk-chocolate-coffee emulsions, including viscosity, density, boiling point; Brownian motion in hot fluids and equations with analysis",
+  "confidence": 0.7,
+  "results": {
+    "key_findings": [
+      "Experimental data exists on density, viscosity, and boiling temperature of coffee extracts, showing variations with concentration and temperature; for instance, concentrated coffee solutions (\u03c9=0.5\u20130.8) have measurable viscosity increases at higher temperatures (25\u201395\u00b0C), which could approximate mocha latte emulsions.",
+      "Thermophysical properties of coffee extracts include density, specific heat, thermal conductivity, and freezing points, influenced by concentration; similar to milk-chocolate-coffee emulsions, where fat globules in dairy-based systems (e.g., chocolate milk) remain suspended due to Brownian motion.",
+      "In emulsions like chocolate milk or coconut milk, Brownian motion prevents creaming by keeping particles (<0.8 \u03bcm) in suspension, especially in hot fluids; viscosity of the continuous phase (e.g., increased by hydrocolloids) reduces creaming rates, relevant for boiling or hot mocha lattes.",
+      "Rheological properties of chocolate masses show temperature-dependent viscosity and flow behavior, applicable to chocolate-coffee mixtures; boiling points of such emulsions are near water's (100\u00b0C) but elevated slightly by solutes, with no exact mocha-specific data.",
+      "Brownian motion in hot fluids follows Stokes-Einstein equation (D = kT / (6\u03c0\u03b7r)), where diffusion coefficient D increases with temperature T, aiding particle stability in heated emulsions; analysis indicates higher temperatures enhance motion but may promote phase separation if viscosity drops."
+    ],
+    "confidence": 0.7,
+    "gaps": [
+      "No direct experimental data on mocha latte or milk-chocolate-coffee emulsions; properties are inferred from coffee extracts, chocolate masses, and similar dairy emulsions like coconut or chocolate milk.",
+      "Limited specific equations or quantitative analysis for Brownian motion in hot, multi-phase coffee-chocolate fluids; boiling point data is generalized, lacking precise values for varying compositions.",
+      "Thermophysical interactions (e.g., exact density/viscosity at boiling for emulsions) under dynamic heating conditions are unclear, with no real-time studies on stability during boiling."
+    ],
+    "contradictions": [
+      "Some sources suggest increased temperature reduces viscosity in coffee solutions (web:17), while others note emulsion stability via Brownian motion may decrease creaming but increase coalescence risk in hot fluids (web:3), creating uncertainty in net thermal effects."
+    ],
+    "summary": "The search results provide indirect but useful insights into the physical and thermal properties of coffee-based emulsions, drawing from studies on coffee extracts, chocolate rheology, and dairy emulsions. Key properties like viscosity and density vary with temperature and concentration, while Brownian motion aids suspension in hot conditions per Stokes-Einstein dynamics. However, mocha latte-specific data is absent, limiting precision for boiling scenarios."
+  }
+}

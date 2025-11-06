@@ -55,7 +55,7 @@ class PlannerAgent(BaseAgent):
             
             # Extract and validate
             from research_agent import ResearchAgent  # Import extraction logic
-            plan = ResearchAgent._robust_json_extract(response, fallback_plan=query)
+            plan = ResearchAgent._robust_json_extract(response, fallback_plan=query, llm_client=self.llm)
             
             # Self-validate
             is_valid, issues = self._validate_plan(plan)

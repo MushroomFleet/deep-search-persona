@@ -1,0 +1,26 @@
+{
+  "step_number": 3,
+  "phase": "searching",
+  "query": "composition and physical properties of mocha latte fluid",
+  "reasoning": "Searching for: composition and physical properties of mocha latte fluid",
+  "confidence": 0.75,
+  "results": {
+    "key_findings": [
+      "A mocha latte is primarily composed of espresso (or strong coffee), steamed milk, and chocolate flavoring such as syrup, cocoa powder, or melted chocolate, often topped with whipped cream for added creaminess.",
+      "The beverage originates from the Yemeni port of Mokha, historically linked to coffee trade, and is a chocolate variant of a caff\u00e8 latte, typically served warm or hot in a glass.",
+      "Physical properties include a creamy, frothy texture due to steamed milk, a warm serving temperature (around 150-160\u00b0F for hot versions), and a balanced sweet-bitter flavor profile from the chocolate-coffee combination.",
+      "Variations exist, such as iced mochas or those using different chocolate types (milk, dark), but the core fluid is a homogeneous emulsion of milk-based liquid with dissolved coffee and chocolate components."
+    ],
+    "confidence": 0.75,
+    "gaps": [
+      "Detailed scientific physical properties (e.g., viscosity, density, pH, or thermal conductivity) of the mocha latte fluid are not specified in the results; only general sensory descriptions like creaminess are provided.",
+      "Quantitative composition ratios (e.g., exact proportions of espresso to milk to chocolate) vary by recipe and are not standardized across sources.",
+      "Nutritional or chemical breakdown (e.g., fat content, emulsification stability) is absent, focusing instead on preparation and history."
+    ],
+    "contradictions": [
+      "Minor variations in naming (e.g., caff\u00e8 mocha, mocaccino, mochaccino) and chocolate incorporation methods (syrup vs. powder vs. melted), but no conflicting core descriptions.",
+      "Some sources describe it as more dessert-like and indulgent due to chocolate, while others emphasize its similarity to a latte with minimal added sweetness, though this is contextual rather than contradictory."
+    ],
+    "summary": "The search results provide a solid overview of the mocha latte's composition as a coffee-milk-chocolate emulsion and basic physical traits like texture and temperature, but lack in-depth scientific analysis of fluid properties. Sources like Wikipedia and recipe sites (e.g., Allrecipes, MasterClass) consistently describe it as a warm, creamy beverage derived from historical coffee trade routes."
+  }
+}

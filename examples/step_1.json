@@ -1,0 +1,26 @@
+{
+  "step_number": 1,
+  "phase": "searching",
+  "query": "physical properties of boiling fluids including Brownian motion equations references citations",
+  "reasoning": "Searching for: physical properties of boiling fluids including Brownian motion equations references citations",
+  "confidence": 0.6,
+  "results": {
+    "key_findings": [
+      "Brownian motion in fluids is primarily described by models such as Einstein's diffusion equation, Smoluchowski's 1D model, and the Langevin equation, focusing on random particle movement due to collisions in viscous or complex fluids.",
+      "Key equations include the mean-square displacement for diffusion (qualitatively valid on timescales larger than atomic collisions) and generalizations for flowing or periodic boundary conditions in simulations, relevant to microrheology and rheology evaluation.",
+      "References include historical works (e.g., Einstein 1905), modern papers on microhydrodynamics in complex fluids (Cambridge University Press), and recent studies (e.g., arXiv 2025 on periodic boundaries, AIP 2025 on hydrodynamics logic).",
+      "Applications extend to nanofluid flows, energy fluctuations, and particle motion in viscous media, but no direct equations or properties specific to boiling fluids (e.g., phase change, bubble dynamics) are evident.",
+      "Sources emphasize theoretical and simulation-based insights, with citations from Wikipedia, PMC, ResearchGate, arXiv, and AIP Publishing."
+    ],
+    "confidence": 0.6,
+    "gaps": [
+      "Lack of specific information on physical properties of boiling fluids, such as viscosity changes, bubble-induced motion, or temperature effects on Brownian diffusion during boiling.",
+      "No dedicated equations or models linking Brownian motion directly to boiling phenomena (e.g., nucleate boiling or vapor-liquid interfaces).",
+      "Limited real-time or experimental data on boiling contexts; results focus on general or room-temperature fluids."
+    ],
+    "contradictions": [
+      "None identified; results consistently describe Brownian motion in non-boiling fluids without conflicting claims, though the irrelevance to boiling creates an implicit mismatch with the query."
+    ],
+    "summary": "The search results provide robust coverage of Brownian motion equations, models, and references in general fluids (e.g., viscous, complex, or flowing), drawing from historical and modern sources. However, they do not address boiling fluids specifically, highlighting a gap in phase-change or high-temperature applications. This suggests the query's intersection of topics may require refined searches or interdisciplinary sources."
+  }
+}
