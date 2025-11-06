@@ -88,11 +88,6 @@ The Deep Research Pipeline supports multiple personas that modify how research i
 | `zargon_persona_20251106_065137.md` | Zargon | 2025-11-06 06:51:37 | Report | ~14KB |
 | `zargon_persona_20251106_065137.json` | Zargon | 2025-11-06 06:51:37 | Data | ~14KB |
 
-### Additional Files
-
-| Filename | Description |
-|----------|-------------|
-| `step_1.json` through `step_4.json` | Intermediate research steps (from a different research session) |
 
 ---
 
@@ -162,10 +157,10 @@ results = pipeline.execute("Your research query")
 
 ```bash
 # Default mode
-python cli.py "Your research query"
+python pipeline_advanced.py "Your research query"
 
 # With persona prefix
-python cli.py "Your research query" --persona isaac
+python pipeline_advanced.py "Your research query" --writer-prompt isaac.md
 ```
 
 ---
@@ -294,3 +289,4 @@ These example outputs are provided for demonstration purposes. The persona syste
 **Generated:** November 6, 2025  
 **Pipeline Version:** Phase 3 (Advanced Features)  
 **Model Used:** x-ai/grok-4-fast:online
+
