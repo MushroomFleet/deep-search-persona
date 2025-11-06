@@ -33,6 +33,7 @@ An advanced autonomous research pipeline with specialized writing personas, powe
 - **Specialized personas** for different content types
 - **CLI integration** with `--writer-prompt` flag
 - **Included examples**: Asimov-style science communication, creative storytelling, technical writing
+- **📚 Comparison Study**: See [examples/README.md](examples/README.md) for side-by-side persona comparisons
 
 ---
 
@@ -227,6 +228,23 @@ print(results['results']['final_report'])
 python pipeline_advanced.py "Summarize the Voynich manuscript" --writer-prompt isaac.md
 ```
 
+### Example 4: Compare Persona Outputs
+
+See the [`examples/`](examples/) directory for a comprehensive comparison study where all four personas (Default, Isaac, Orson, Zargon) were used to research the same topic:
+
+**Query:** `"summarize the voynich manuscript, writing a primer to introduce its content"`
+
+The [examples/README.md](examples/README.md) provides:
+- **Style comparison excerpts** showing how each persona opens the same topic
+- **Use case recommendations** for when to use each persona
+- **Technical details** on file naming conventions and structure
+- **Quality metrics** demonstrating that all personas maintain equal factual accuracy
+
+**Files included:**
+- 8 research outputs (4 personas × 2 file types: `.md` reports + `.json` data)
+- Side-by-side comparison of writing styles
+- Detailed analysis of persona characteristics
+
 ---
 
 ## 📖 Documentation
@@ -234,6 +252,7 @@ python pipeline_advanced.py "Summarize the Voynich manuscript" --writer-prompt i
 Comprehensive documentation available in the `docs/` directory:
 
 - **[Quick Start Guide](docs/QUICKSTART.md)** - Get started in 5 minutes
+- **[Persona Examples](examples/README.md)** - Side-by-side comparison of all personas ⭐ **NEW**
 - **[Phase 1: Quick Wins](docs/PHASE1_IMPLEMENTATION_SUMMARY.md)** - Foundation improvements
 - **[Phase 2: Architecture](docs/PHASE2_IMPLEMENTATION_SUMMARY.md)** - Multi-agent system
 - **[Phase 3: Advanced Features](docs/PHASE3_IMPLEMENTATION_SUMMARY.md)** - Adaptive workflow
@@ -261,6 +280,12 @@ deepsearch/
 │   └── fact_checker.py         # Cross-reference validation
 ├── testing/                     # Phase 3: Optimization
 │   └── ab_testing.py           # A/B test framework
+├── examples/                    # Persona comparison examples
+│   ├── README.md               # Detailed persona analysis
+│   ├── default_report_*.md     # Default persona outputs
+│   ├── isaac_persona_*.md      # Isaac persona outputs
+│   ├── orson_persona_*.md      # Orson persona outputs
+│   └── zargon_persona_*.md     # Zargon persona outputs
 ├── pipeline.py                  # Phase 2 pipeline
 ├── pipeline_advanced.py         # Phase 3 pipeline
 ├── prompt_library.py            # Phase 1: Structured prompts
